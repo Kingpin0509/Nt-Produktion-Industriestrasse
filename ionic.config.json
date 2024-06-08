@@ -1,0 +1,7 @@
+{
+  "name": "nietietproduktion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
