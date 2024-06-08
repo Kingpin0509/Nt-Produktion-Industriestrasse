@@ -8,6 +8,20 @@
  * For more information on global stylesheets, visit the documentation:
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
+@import url("../src/theme/themes-color/turbo-lime-gradient.scss");
+
+@supports (-webkit-appearance: none) {
+  .mdl-progress:not(.mdl-progress--indeterminate):not(
+      .mdl-progress--indeterminate
+    )
+    > .auxbar,
+  .mdl-progress:not(.mdl-progress__indeterminate):not(
+      .mdl-progress__indeterminate
+    )
+    > .auxbar {
+    mask: url(../src/assets/images/buffer.svg) !important;
+  }
+}
 
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
@@ -25,13 +39,73 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+body {
+  width: 100%;
+  height: 100%;
+}
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+.turbo-lime-gradient {
+  /* Settings Fonts Size And Icon Size
+       =======================================================
+       =======================================================*/
+  --fallback-color: red;
+  --h1-font-size: 24px;
+  --h2-font-size: 20px;
+  --h3-font-size: 17px;
+  --h4-font-size: 16px;
+  --h5-font-size: 15px;
+  --h6-font-size: 12px;
+  --text-font-size: 14px;
+  /* Settings Fonts Size Icon
+       =======================================================
+       =======================================================*/
+  --icon-size-small: 17px;
+  --icon-size-medium: 22px;
+  --icon-size-large: 32px;
+  --icon-size-extra-large: 48px;
+  /* Settings Color Background Our App
+     =======================================================
+     =======================================================*/
+  --cs-background-primary: #23222b;
+  --cs-background-secondary: #32313b;
+  --cs-background-accent: #d9f700;
+  --cs-background-dark: #71757e;
+  --cs-background-border: #cbcbcb;
+  --cs-background-borderDefaultButton: #6a491d;
+  /* Settings Color Text Our App
+     =======================================================
+     =======================================================*/
+  --cs-text-primary: #ffffff;
+  --cs-text-secondary: #cbcbcb;
+  --cs-text-light: #23222b;
+  --cs-text-accent: #d9f700;
+  /* Settings Color Gradient Our App
+ =======================================================
+ =======================================================*/
+  --cs-gradient-primary: rgba(180, 255, 0, 1);
+  --cs-gradient-secondary: rgb(0, 0, 0, 0);
+  --cs-gradient-accent: rgba(217, 247, 0, 1);
+  --cs-gradient-linear: linear-gradient(
+    to left,
+    var(--cs-gradient-primary) 0%,
+    var(--cs-gradient-accent) 100%
+  );
+  /* Settings Size Avatar
+     =======================================================
+     =======================================================*/
+  --size-avatar: 72px;
+  /* Settings Size Thumbnail
+     =======================================================
+     =======================================================*/
+  --size-thumbnail: 78px;
+  /* Settings Border Radius
+     =======================================================
+     =======================================================*/
+  --border-radius: 8px;
+  /* Settings Color Icon
+     =======================================================
+     =======================================================*/
+  --cs-icon-color-primary: #ffffff;
+  --cs-icon-color-secondary: #cbcbcb;
+  --cs-icon-color-accent: #d9f700;
+}

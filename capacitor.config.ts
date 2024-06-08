@@ -1,9 +1,9 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'ionic.nietietproduktion',
-  appName: 'nietietproduktion',
-  webDir: 'www'
+  appId: 'de.nietiet.nt',
+  appName: 'Nietiet Produktion',
+  webDir: 'www/browser'
 };
 
 export default config;
