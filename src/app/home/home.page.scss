@@ -37,3 +37,7 @@ ion-col {
   color: #fff;
   text-align: center;
 }
+ion-content {
+    background-color: #fafafa;
+  --background: var(--cs-background-primary, #fafafa);
+}
