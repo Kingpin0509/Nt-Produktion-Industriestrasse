@@ -1,0 +1,149 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "auftraege",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        {
+          "fieldPath": "name",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "auftrag",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "auftraege",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "name",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "auftrag",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "auftraege",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "produktion",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "auftrag",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Auftraege",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "name",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Auftrag",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "ausverkapselungsauftragnr",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "name",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "art",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "produktion",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        {
+          "fieldPath": "createdAt",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "auftrag",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "produktion",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "auftrag",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "produkt",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "produktion",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "produktion",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "auftrag",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "produktionheute",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        {
+          "fieldPath": "Titel",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Auftragsnummer",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "produktionheute",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Titel",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Auftragsnummer",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

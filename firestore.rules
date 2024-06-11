@@ -1,0 +1,221 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /auftraege/{document=**} {
+      allow read, write: if true;
+      }
+    match /produktion/{document=**} {
+      allow read, write: if true;
+      }
+    match /AuftraegeHeuteEU/{document=**} {
+      allow read, write: if true;
+      }
+  	match /AuftraegeHeuteEU.produktion/{document=**} {
+      allow read, write: if true;
+      }
+    match /nietiet:AuftraegeHeuteEU.produktion/{document=**} {
+      allow read, write: if true;
+      }
+    match /produktionheute/{document=**} {
+      allow read, write: if true;
+      }
+    match /transferConfigs/{document=**} {
+      allow read, write: if true;
+      }
+    match /nietiet.produktion/{document=**} {
+      allow read, write: if true;
+      }
+    match /nietiet.produktionheute/{document=**} {
+      allow read, write: if true;
+      }
+    match /nietiet.transferConfigs/{document=**} {
+      allow read, write: if true;
+      }
+      // Allow admins to read and write all documents
+    match /{document=**} {
+      allow read, write: if hasAnyRole(["ADMIN", "OWNER"]);
+    }
+    match /{document=**} {
+      allow read, write: if true;
+    }
+
+    // Rowy: Allow signed in users to read Rowy configuration and admins to write
+    match /_rowy_/{docId} {
+      allow read: if request.auth.token.roles.size() > 0;
+      allow write: if hasAnyRole(["ADMIN", "OWNER"]);
+    	match /{document=**} {
+        allow read: if request.auth.token.roles.size() > 0;
+        allow write: if hasAnyRole(["ADMIN", "OWNER"]);
+      }
+      match /schema/{tableId} {
+        allow update: if canModify(tableId,'pc')
+        match /{document=**} {allow read,write: if canModify(tableId,'pc')}
+      }
+       match /groupSchema/{tableId} {
+        allow update: if canModify(tableId,'cg')
+        match /{document=**} {allow read,write: if canModify(tableId,'cg')}
+      }
+    	function canModify(tableId,tableType) {
+      	return hasAnyRole(get(/databases/$(database)/documents/_rowy_/settings)
+        .data.tablesSettings[tableType][tableId].modifiableBy)
+	   	}
+    }
+    // Rowy: Allow users to edit their settings
+    match /_rowy_/userManagement/users/{userId} {
+      allow get, update, delete: if isDocOwner(userId);
+      allow create: if request.auth.token.roles.size() > 0;
+    }
+    // Rowy: Allow public to read public Rowy configuration
+    match /_rowy_/publicSettings {
+      allow get: if true;
+    }
+
+    // Rowy: Utility functions
+    function isDocOwner(docId) {
+      return request.auth != null && (request.auth.uid == resource.id || request.auth.uid == docId);
+    }
+    function hasAnyRole(roles) {
+      return request.auth != null && request.auth.token.roles.hasAny(roles);
+    }
+
+    	match /{document=**} {
+      	allow read, write: if false;
+      }
+      match /exports/{document=**} {
+      	allow read, write: if true;
+      }
+      match /users/{document=**} {
+      	allow read;
+      	allow write: if getRole('admin') == true;
+      }
+      match /locale/{document=**} {
+      	allow read: if getRole('admin') == true;
+      	allow write: if getRole('admin') == true;
+      }
+      match /custom_product/{document=**} {
+      	allow read: if getRole('admin') == true;
+      	allow write: if getRole('admin') == true;
+      }
+
+      match /kunden/{document=**} {
+      	allow read;
+      	allow write: if getRole('admin') == true;
+      }
+      match /produkte/{document=**} {
+      	allow read;
+      	allow write: if getRole('admin') == true;
+      }
+      match /orders/{document=**} {
+      	allow read: if getRole('admin') == true;
+      	allow write: if getRole('admin') == true;
+      }
+      match /products/{document=**} {
+      	allow read: if getRole('admin') == true;
+      	allow write: if getRole('admin') == true;
+      }
+      match /showcase/{document=**} {
+      	allow read: if getRole('admin') == true;
+      	allow write: if getRole('admin') == true;
+      }
+      
+      match /users/{userId} {
+        allow write, read: if isOwner(userId);
+    	}
+      match /Rolle/{document=**} {
+      	allow read: if getRole('admin') == true;
+      	allow write: if getRole('admin') == true;
+      }
+      match /Auftrag/{document=**} {
+     		allow read: if getRole('admin') == true;
+      	allow write: if getRole('admin') == true;
+      }
+      match /Employee/{document=**} {
+     		allow read: if getRole('admin') == true;
+     		allow write: if getRole('admin') == true;
+      }
+      match /Art/{document=**} {
+     		allow read: if getRole('admin') == true;
+     		allow write: if getRole('admin') == true;
+      }
+
+      match /contacts/{document=**} {
+      	allow read, write;
+      }
+      match /contacts/test/{document=**} {
+      	allow read, write;
+      }
+            match /contacts/test1/{document=**} {
+      	allow read, write;
+      }
+//      match /users/{document} {
+//  			allow read;
+//  			allow create: if request.resource.data.roles.keys().hasAny(['admin', 'editor']) == false;
+//  			allow update: if getRole('admin') == true;
+//			}
+		match /accounts/{userId} {
+    	allow write: if belongsTo(userId);
+			}
+//    match /users/{userId} {
+//    	allow write: if belongsTo(userId);
+//			}
+    match /test/{document} {
+      allow read, write: if getRole('admin') == true;
+			}
+    match /some_collection/{document} {
+     	allow read: if getRole('produktion, technik') == true;
+     	allow write: if getRole('admin') == true;
+    	}
+  		allow read: if getRole('produktion, technik') == true;
+  		allow update: if getRole('leitung') == true;
+  		allow create, delete: if getRole('admin') == true;
+
+
+  function belongsTo(userId) {
+    return request.auth.uid == userId
+    }
+  function getRole(role) {
+   return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role]
+	  }
+  function isOwner(userId) {
+   return request.auth.uid == userId
+    }
+    
+  }
+}
+//    function isSignedIn() {
+//      return request.auth != null;
+//    }
+//    function emailVerified() {
+//      return request.auth.token.email_verified;
+//    }
+//    function userExists() {
+//      return exists(/databases/$(database)/documents/users/$(request.auth.uid));
+//    }
+//
+//    // [READ] Data that exists on the Firestore document
+//    function existingData() {
+//      return resource.data;
+//    function incomingData() {
+//      return request.resource.data;
+//    }
+//
+//    // Does the logged-in user match the requested userId?
+//    function isUser(userId) {
+//      return request.auth.uid == userId;
+//    }
+//
+//    // Fetch a user from Firestore
+//    function getUserData() {
+//      return get(/databases/$(database)/documents/accounts/$(request.auth.uid)).data
+//    }
+//
+//    // Fetch a user-specific field from Firestore
+//    function userEmail(userId) {
+//      return get(/databases/$(database)/documents/users/$(userId)).data.email;
+//    }
+//    match /orders/{orderId} {
+//      allow create: if isSignedIn() && emailVerified() && isUser(incomingData().userId);
+//      allow read, list, update, delete: if isSignedIn() && isUser(existingData().userId);
+//    }
+     
+
