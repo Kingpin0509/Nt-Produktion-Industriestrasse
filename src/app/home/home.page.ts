@@ -19,15 +19,25 @@ import {
   IonFooter,
   IonCard,
   IonCardContent,
-  IonButton,
-} from '@ionic/angular/standalone';
+  IonButton, IonIcon } from '@ionic/angular/standalone';
+import {
+  Auth,
+  User,
+  user,
+  signInAnonymously,
+  GoogleAuthProvider,
+  signInWithPopup,
+  authState,
+} from '@angular/fire/auth';
+import { traceUntilFirst } from '@angular/fire/performance';
+import { map, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonIcon, 
     IonButton,
     IonCardContent,
     IonCard,

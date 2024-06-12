@@ -10,12 +10,39 @@
       <ion-title size="large">Produktion Industriestrasse</ion-title>
     </ion-toolbar>
   </ion-header>
+ <!-- <code>{{ (user$ | async)?.uid }}</code>
+
+  <ion-button
+    class="box-shadow googleButton button-icon ion-margin-top ion-margin-bottom"
+    expand="block"
+    *ngIf="showLoginButton"
+    (click)="login()"
+  >
+    <ion-icon class="icon-medium" slot="end" name="logo-google"></ion-icon>
+  </ion-button>
+  <ion-button
+    class="default-button box-shadow"
+    expand="block"
+    *ngIf="showLoginButton"
+    (click)="loginanon()"
+    fill="clear"
+    >Anonym</ion-button
+  >
+  <ion-button
+    class="box-shadow default-button ion-text-capitalize ion-margin-top ion-margin-bottom"
+    expand="block"
+    *ngIf="showLogoutButton"
+    (click)="logout()"
+  >
+    Logout
+  </ion-button> -->
 
   <div id="container">
-
     <ion-card #card>
-       <ion-card-content><img class="ion-padding" src="/assets/images/logo_nietietsvg.png" /></ion-card-content>
-     </ion-card>
+      <ion-card-content
+        ><img class="ion-padding" src="/assets/images/logo_nietietsvg.png"
+      /></ion-card-content>
+    </ion-card>
 
     <!--<strong>Ready to create an app?</strong>
     <p>Start with Ionic<a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>-->
@@ -123,9 +150,9 @@
 </ion-content>
 <ion-footer [translucent]="true">
   <ion-toolbar>
-    <ion-button (click)="play()">Play</ion-button>
+    <!-- <ion-button (click)="play()">Play</ion-button>
     <ion-button (click)="pause()">Pause</ion-button>
-    <ion-button (click)="stop()">Stop</ion-button>
+    <ion-button (click)="stop()">Stop</ion-button> -->
     <ion-title
       ><a
         target="_blank"

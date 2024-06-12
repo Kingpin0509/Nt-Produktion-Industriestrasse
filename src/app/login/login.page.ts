@@ -25,8 +25,8 @@ import { map, Subscription } from 'rxjs';
 export class LoginPage implements OnInit {
     private auth: Auth = inject(Auth);
   user$ = user(this.auth);
-  userSubscription: Subscription = new Subscription;
-  private userDisposable: Subscription | undefined;
+  userSubscription!: Subscription;
+  private userDisposable!: Subscription;
   showLoginButton = false;
   showLogoutButton = false;
   constructor() { }
