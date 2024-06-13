@@ -8,7 +8,6 @@ import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 import { provideServiceWorker } from '@angular/service-worker';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-
 if (environment.production) {
   enableProdMode();
 }

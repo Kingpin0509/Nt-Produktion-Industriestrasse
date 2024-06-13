@@ -1,6 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Produktion Industriestrasse</ion-title>
+    <ion-title>
+      <ion-button routerLink="/login">Sign In</ion-button>
+      Produktion Industriestrasse
+      <ion-button routerLink="/admin">Admin</ion-button></ion-title
+    >
   </ion-toolbar>
 </ion-header>
 
@@ -10,7 +14,7 @@
       <ion-title size="large">Produktion Industriestrasse</ion-title>
     </ion-toolbar>
   </ion-header>
- <!-- <code>{{ (user$ | async)?.uid }}</code>
+  <!-- <code>{{ (user$ | async)?.uid }}</code>
 
   <ion-button
     class="box-shadow googleButton button-icon ion-margin-top ion-margin-bottom"
@@ -40,7 +44,7 @@
   <div id="container">
     <ion-card #card>
       <ion-card-content
-        ><img class="ion-padding" src="/assets/images/logo_nietietsvg.png"
+        ><img src="/assets/images/logo_nietietsvg.png"
       /></ion-card-content>
     </ion-card>
 
@@ -150,16 +154,16 @@
 </ion-content>
 <ion-footer [translucent]="true">
   <ion-toolbar>
-    <!-- <ion-button (click)="play()">Play</ion-button>
-    <ion-button (click)="pause()">Pause</ion-button>
-    <ion-button (click)="stop()">Stop</ion-button> -->
-    <ion-title
-      ><a
+    <ion-title>
+      <ion-button ion-padding (click)="play()">Play</ion-button>
+      <ion-button (click)="pause()">Pause</ion-button>
+      <a class="ion-padding-horizontal"
         target="_blank"
         rel="noopener noreferrer"
         href="https://www.privacypolicies.com/live/efe5e7bf-7b0e-4d60-b67a-61867fcef7e2"
-        >Nietiet GmbH</a
-      ></ion-title
-    >
+      >Nietiet GmbH</a
+      >
+      <ion-button (click)="stop()">Stop</ion-button>
+    </ion-title>
   </ion-toolbar>
 </ion-footer>

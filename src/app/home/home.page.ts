@@ -3,8 +3,10 @@ import {
   ElementRef,
   ViewChildren,
   ViewChild,
-  AfterViewInit,
+  AfterViewInit,inject,
 } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 import type { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular';
@@ -20,24 +22,13 @@ import {
   IonCard,
   IonCardContent,
   IonButton, IonIcon } from '@ionic/angular/standalone';
-import {
-  Auth,
-  User,
-  user,
-  signInAnonymously,
-  GoogleAuthProvider,
-  signInWithPopup,
-  authState,
-} from '@angular/fire/auth';
-import { traceUntilFirst } from '@angular/fire/performance';
-import { map, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonIcon, 
+  imports: [RouterModule, IonIcon, 
     IonButton,
     IonCardContent,
     IonCard,
@@ -58,6 +49,8 @@ export class HomePage implements AfterViewInit {
   private animation!: Animation;
 
   constructor(private animationCtrl: AnimationController) {}
+   //authService = inject(AuthService);
+  router = inject(Router);
   ngAfterViewInit() {
     this.animation = this.animationCtrl
       .create()

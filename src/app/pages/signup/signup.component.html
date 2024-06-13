@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>Produktion Industriestrasse</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Produktion Industriestrasse</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+    <div id="container">
+<div class="signup-card">
+  <div class="card-title">
+      <h1>Create Account</h1>
+      <span>Already have an account? <a routerLink="/login">Sign In</a></span>
+  </div>
+  <form class="form-group" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <input type="text" name="name" placeholder="Name" formControlName="name">
+      <input type="email" name="email" placeholder="Email" formControlName="email">
+      <input type="password" name="password" placeholder="Password" formControlName="password">
+      <input type="submit" value="Signup">
+  </form>
+  <div class="card-terms">
+      <input type="checkbox"> <span>I have read and agree to the <a href="">Terms of Service</a></span>
+  </div>
+</div>
+  </div>
+</ion-content>
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title
+      ><a routerLink="/login">Sign In</a> <a routerLink="/admin">Admin</a
+      ><a routerLink="/signup">Signup</a
+      ><a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.privacypolicies.com/live/efe5e7bf-7b0e-4d60-b67a-61867fcef7e2"
+        >Nietiet GmbH</a
+      ></ion-title
+    >
+  </ion-toolbar>
+</ion-footer>
