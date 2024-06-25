@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Nietiet Produktion</string>
-    <string name="title_activity_main">Nietiet Produktion</string>
+    <string name="app_name">Nietiet - Produktionsdashboard</string>
+    <string name="title_activity_main">Nietiet - Produktionsdashboard</string>
     <string name="package_name">de.nietiet.nt</string>
     <string name="custom_url_scheme">de.nietiet.nt</string>
 </resources>
