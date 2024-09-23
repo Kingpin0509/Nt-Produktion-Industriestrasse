@@ -1,3 +1,12 @@
 {
-  "typescript.preferences.autoImportFileExcludePatterns": ["@ionic/angular/common", "@ionic/angular"]
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "@ionic/angular/common",
+    "@ionic/angular"
+  ],
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/b8625200-6347-4323-b9dc-9489616d1e84/resourceGroups/nietietofficeressourcengruppe/providers/Microsoft.Web/sites/NietietOfficeApp",
+  "appService.deploySubpath": "www\\browser"
 }
