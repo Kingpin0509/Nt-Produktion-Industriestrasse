@@ -492,7 +492,7 @@ body {
 }
 
 .text-color-secondary {
-  color: var(--cs-text-secondary, #cbcbcb) !important;
+  color: var(--cs-text-secondary, #C9D100) !important;
 }
 
 .text-color-accent {
@@ -648,7 +648,7 @@ ion-menu-toggle {
   font-weight: 300 !important;
   --background-hover: transparent;
   --color-hover: var(--cs-text-primary, #ffffff);
-  --color-activated: var(--cs-text-primary, #ffffff) !important;
+  --color-activated: var(--cs-text-primary, #C9D100) !important;
   --color-focused: var(--cs-text-primary, #ffffff) !important;
   --box-shadow: none;
 
